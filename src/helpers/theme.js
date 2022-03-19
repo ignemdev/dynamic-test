@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
-const palette = {
+export const palette = {
     primary: {
         main: '#f2653d',
         contrastText: '#fbfaf9',
