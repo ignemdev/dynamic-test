@@ -9,7 +9,7 @@ export default function Header() {
                     Mariam Forms
                 </Typography>
                 <Typography variant="body2">
-                    test
+                    Test
                 </Typography>
             </CardContent>
         </Card>

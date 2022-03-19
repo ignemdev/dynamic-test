@@ -2,13 +2,17 @@ import { createTheme } from '@mui/material/styles';
 
 const palette = {
     primary: {
-        main: '#008272',
-        contrastText: '#E9F2F6',
+        main: '#f2653d',
+        contrastText: '#fff',
     },
     secondary: {
         main: '#fff',
-        contrastText: '#212121',
+        contrastText: '#000',
     },
+    info: {
+        main: '#3c7b53',
+        contrastText: '#fff',
+    }
 }
 
 export const spacing = {

@@ -8,7 +8,7 @@ function Question() {
     return (
         <Card variant="secondary" sx={{ ...spacing, ...border }}>
             <FormControl>
-                <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
+                <FormLabel>Gender</FormLabel>
                 <RadioGroup row>
                     <FormControlLabel value="female" control={<Radio />} label="Female" />
                     <FormControlLabel value="male" control={<Radio />} label="Male" />
