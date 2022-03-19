@@ -24,12 +24,30 @@ const questionsJson = [
         "description": "Como comes?",
         "options": [
             {
-                "id": 3,
+                "id": 1,
                 "text": "Tenedor",
                 "value": 1
             },
             {
-                "id": 4,
+                "id": 2,
+                "text": "Cuchara",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "question3",
+        "value": 0,
+        "description": "Como comes?",
+        "options": [
+            {
+                "id": 1,
+                "text": "Tenedor",
+                "value": 1
+            },
+            {
+                "id": 2,
                 "text": "Cuchara",
                 "value": 2
             }

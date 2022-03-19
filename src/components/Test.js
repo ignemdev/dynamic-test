@@ -8,9 +8,11 @@ import questionsJson from '../db/questions'
 export default function Test() {
 
     const [isLoading, setIsLoading] = useState(true);
+    const [isFromValid, setIsFromValid] = useState(false);
+
+    const [score, setScore] = useState(0);
     const [questions, setQuestions] = useState([]);
     const [answers, setAnswers] = useState([]);
-    const [cleanForm, setCleanForm] = useState(false);
 
     const handleAnswer = answer => {
         const { id } = answer;
@@ -19,30 +21,40 @@ export default function Test() {
     }
 
     const handleResultsButton = () => {
+        const testScore = getTestScore(answers);
+        setScore(testScore);
         setQuestions([]);
-        setCleanForm(true);
+        setAnswers([]);
     }
 
-    //request questions
-    useEffect(() => setQuestions(questionsJson), []);
+    const getTestScore = (answers) => {
+        const values = answers.map(answer => Number(answer.value));
+        const accumulatedScore = values.reduce((acc, value) => acc + value);
+        return accumulatedScore;
+    }
+
+    // request questions
+    useEffect(() => {
+        console.log('first')
+        setQuestions(questionsJson);
+    }, []);
 
     //limpiar form
     useEffect(() => {
+        console.log(score);
         setQuestions(questionsJson);
-        setAnswers([]);
-    }, [cleanForm]);
+    }, [score]);
 
     //loading handling
     useEffect(() => {
         if (questions?.length > 0) {
             setIsLoading(false);
         }
-        setCleanForm(false);
     }, [questions])
 
     //testear
     useEffect(() => {
-        console.log(answers);
+        setIsFromValid(questions.length === answers.length);
     }, [answers])
 
     return (
@@ -58,7 +70,7 @@ export default function Test() {
                     ))}</>)
                 }
                 <Box sx={{ ...spacing, backgroundColor: palette.secondary.main }}>
-                    <Button color='info' variant='contained' sx={{ ...border }} onClick={handleResultsButton}>Hola</Button>
+                    <Button disabled={!isFromValid} color='info' variant='contained' sx={{ ...border }} onClick={handleResultsButton}>Hola</Button>
                 </Box>
             </Paper>
         </Box>

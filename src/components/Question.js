@@ -5,7 +5,7 @@ import { Card, CircularProgress, Box, Skeleton } from '@mui/material/';
 
 import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material'
 
-function Question({ questionItem, onAnswer }) {
+function Question({ questionItem, onAnswer, control }) {
 
     const [isLoading, setIsLoading] = useState(true);
     const [question, setQuestion] = useState({});
@@ -30,24 +30,25 @@ function Question({ questionItem, onAnswer }) {
 
     return (
         <Card variant="secondary" sx={{ ...spacing, ...border }}>
-            <FormControl sx={{ height: '60px', width: '100%' }}>
-                {isLoading ?
-                    (<Box sx={{ width: '100%', backgroundColor: palette.secondary.main }}>
-                        <Skeleton />
-                        <Skeleton />
-                        <Skeleton />
-                    </Box>
-                    ) :
-                    (<>
+
+            {isLoading ?
+                (<Box sx={{ height: '65px', width: '100%', backgroundColor: palette.secondary.main }}>
+                    <Skeleton />
+                    <Skeleton />
+                    <Skeleton />
+                </Box>
+                ) :
+                (<>
+                    <FormControl sx={{ width: '100%' }}>
                         <FormLabel>{question?.description}</FormLabel>
                         <RadioGroup row name={question?.name} value={value} onChange={handleChange}>
                             {question?.options?.map(option => (
                                 <FormControlLabel key={option?.id} value={option?.value} control={<Radio />} label={option?.text} />
                             ))}
                         </RadioGroup>
-                    </>)
-                }
-            </FormControl>
+                    </FormControl>
+                </>)
+            }
         </Card>
     );
 }
