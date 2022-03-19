@@ -11,8 +11,8 @@ export default function Test() {
                 <Question />
                 <Question />
 
-                <Card variant="secondary" sx={{ ...spacing, ...border }}>
-                    <Button color='info' variant='contained'>Hola</Button>
+                <Card variant="secondary" sx={{ ...spacing }}>
+                    <Button color='info' variant='contained' sx={{ ...border }}>Hola</Button>
                 </Card>
             </Paper>
         </Box>
