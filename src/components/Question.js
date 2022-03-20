@@ -22,10 +22,10 @@ const Question = ({ questionItem, control }) => {
     }, [question])
 
     return (
-        <Card variant="secondary" sx={{ ...spacing, ...border }}>
+        <Card variant="secondary" sx={{ ...spacing, ...border, height: '65px' }}>
 
             {isLoading ?
-                (<Box sx={{ height: '65px', width: '100%', backgroundColor: palette.secondary.main }}>
+                (<Box sx={{ width: '100%', backgroundColor: palette.secondary.main }}>
                     <Skeleton />
                     <Skeleton />
                     <Skeleton />

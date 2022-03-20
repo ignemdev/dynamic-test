@@ -4,24 +4,34 @@ import { useForm } from "react-hook-form";
 import { Box, Paper, Button, CircularProgress } from '@mui/material'
 
 import { spacing, border, palette } from '../helpers/theme';
+
 import Header from './Header'
 import Question from './Question';
+import Result from './Result';
+
 import questionsJson from '../db/questions'
 
 const Test = () => {
 
+    const methods = useForm({ mode: "onChange" });
+    const { handleSubmit, reset, control, formState } = methods;
+
     const [isLoading, setIsLoading] = useState(true);
+    const [isResultModalOpen, setIsResultModalOpen] = useState(false);
 
     const [score, setScore] = useState(0);
     const [questions, setQuestions] = useState([]);
 
-    const methods = useForm({ mode: "onChange" });
-    const { handleSubmit, reset, control, formState } = methods;
-
     const onSubmit = (data) => {
         const testScore = getTestScore(data);
         setScore(testScore);
+        setIsResultModalOpen(true);
         reset();
+    };
+
+    const handleCloseResultModal = () => {
+        setIsResultModalOpen(!isResultModalOpen);
+        setScore(0);
     };
 
     const getTestScore = (answers) => {
@@ -41,11 +51,6 @@ const Test = () => {
             setIsLoading(false);
         }
     }, [questions])
-
-    //test score
-    useEffect(() => {
-        console.log(score);
-    }, [score]);
 
     return (
         <Box sx={{ minWidth: '45%', marginY: 3 }}>
@@ -67,6 +72,11 @@ const Test = () => {
                     <Button disabled={!formState.isValid} onClick={handleSubmit(onSubmit)} color='info' variant='contained' sx={{ ...border }}>Resultados</Button>
                 </Box>
             </Paper>
+            <Result
+                open={isResultModalOpen}
+                testScore={score}
+                handleCloseResult={handleCloseResultModal}
+            />
         </Box>
     );
 }
