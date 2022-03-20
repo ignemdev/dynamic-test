@@ -2,6 +2,12 @@ import { useState, useEffect } from 'react';
 
 import { Box, Typography, Modal } from '@mui/material'
 
+import {
+    List,
+    ListItem,
+    Divider
+} from '@mui/material';
+
 import { palette } from '../helpers/theme';
 
 import rangesJson from '../db/ranges'
@@ -11,21 +17,18 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
-    height: 100,
     bgcolor: palette.secondary.main,
-    boxShadow: 24,
-    p: 4,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column'
 };
+
+const listItemStyles = {
+    display: 'flex',
+    justifyContent: 'center'
+}
 
 const Result = ({ open, handleCloseResult, testScore }) => {
 
     const [score, setScore] = useState(0);
-    const [result, setResult] = useState('');
+    const [range, setRange] = useState('');
 
     const handleClose = () => {
         handleCloseResult();
@@ -36,7 +39,7 @@ const Result = ({ open, handleCloseResult, testScore }) => {
             range => range.min <= score && score <= range.max
         );
 
-        setResult(range?.result);
+        setRange(range);
     }
 
     useEffect(() => setScore(testScore), [testScore]);
@@ -49,12 +52,26 @@ const Result = ({ open, handleCloseResult, testScore }) => {
             onClose={handleClose}
         >
             <Box sx={style}>
-                <Typography variant="h6" component="h2">
-                    {score}
-                </Typography>
-                <Typography sx={{ mt: 2 }}>
-                    {result}
-                </Typography>
+                <List
+                    sx={{
+                        width: '100%',
+                        color: palette.secondary.contrastText
+                    }}
+                >
+                    <ListItem sx={{ padding: 2, flexDirection: 'column', ...listItemStyles }}>
+                        <Typography variant='h5' sx={{ color: range?.color }}>{range?.result}</Typography>
+                    </ListItem>
+                    <Divider />
+                    <ListItem sx={{ padding: 2, ...listItemStyles }}>
+                        <Typography variant='h6'>Rango:</Typography>
+                        <Typography variant='h6' sx={{ margin: 2, color: range?.color }}>{range?.min} - {range?.max}</Typography>
+                    </ListItem>
+                    <Divider />
+                    <ListItem sx={{ padding: 2, flexDirection: 'column', ...listItemStyles }}>
+                        <Typography variant='h6'>Score:</Typography>
+                        <Typography variant='h1' sx={{ color: range?.color }}>{score}</Typography>
+                    </ListItem>
+                </List>
             </Box>
         </Modal>
     )

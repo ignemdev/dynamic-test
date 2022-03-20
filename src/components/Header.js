@@ -6,10 +6,10 @@ const Header = () => {
         <Card variant="primary" sx={{ ...spacing, ...border }}>
             <CardContent sx={{ padding: 0 }}>
                 <Typography variant="h4" component="div" sx={{ marginBottom: 3, width: '100%', fontWeight: 'light' }} >
-                    Mariam Forms
+                    Estilo de vida saludable
                 </Typography>
                 <Typography variant="body2">
-                    Test
+                    Grupo #
                 </Typography>
             </CardContent>
         </Card>

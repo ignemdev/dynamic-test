@@ -22,7 +22,7 @@ const Question = ({ questionItem, control }) => {
     }, [question])
 
     return (
-        <Card variant="secondary" sx={{ ...spacing, ...border, height: '65px' }}>
+        <Card variant="secondary" sx={{ ...spacing, ...border }}>
 
             {isLoading ?
                 (<Box sx={{ width: '100%', backgroundColor: palette.secondary.main }}>
@@ -34,11 +34,11 @@ const Question = ({ questionItem, control }) => {
                 (<>
 
                     <Controller
-                        name={question?.name}
+                        name={`question-${question?.id}`}
                         control={control}
                         render={({ field: { onChange, value } }) => (
-                            <FormControl sx={{ width: '100%' }}>
-                                <FormLabel>{question?.description}</FormLabel>
+                            <FormControl>
+                                <FormLabel sx={{ overflow: 'hidden', whiteSpace: 'wrap' }}>{`${question?.id}. ${question?.description}`}</FormLabel>
                                 <RadioGroup row value={value} onChange={onChange}>
                                     {question?.options?.map(option => (
                                         <FormControlLabel key={option?.id} value={option?.value} control={<Radio />} label={option?.text} />

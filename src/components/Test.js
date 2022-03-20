@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 
 import { Box, Paper, Button, CircularProgress } from '@mui/material'
+import ContentPasteGoIcon from '@mui/icons-material/ContentPasteGo';
 
 import { spacing, border, palette } from '../helpers/theme';
 
@@ -53,7 +54,7 @@ const Test = () => {
     }, [questions])
 
     return (
-        <Box sx={{ minWidth: '45%', marginY: 3 }}>
+        <Box sx={{ width: '100%', maxWidth: '700px', marginY: 3 }}>
             <Header />
             <Paper elevation={2}>
                 {isLoading ?
@@ -69,7 +70,14 @@ const Test = () => {
                     </>)
                 }
                 <Box sx={{ ...spacing, backgroundColor: palette.secondary.main }}>
-                    <Button disabled={!formState.isValid} onClick={handleSubmit(onSubmit)} color='info' variant='contained' sx={{ ...border }}>Resultados</Button>
+                    <Button
+                        disabled={!formState.isValid}
+                        onClick={handleSubmit(onSubmit)}
+                        color='info'
+                        variant='contained'
+                        sx={{ ...border }}>
+                        Resultados <ContentPasteGoIcon sx={{ marginLeft: 1 }} />
+                    </Button>
                 </Box>
             </Paper>
             <Result
