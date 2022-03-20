@@ -1,25 +1,18 @@
 import { useState, useEffect } from 'react';
+import { Controller } from "react-hook-form";
 
-import { spacing, border, palette } from '../helpers/theme';
-import { Card, CircularProgress, Box, Skeleton } from '@mui/material/';
-
+import { Card, Box, Skeleton } from '@mui/material/';
 import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material'
 
-function Question({ questionItem, onAnswer, control }) {
+import { spacing, border, palette } from '../helpers/theme';
+
+function Question({ questionItem, control }) {
 
     const [isLoading, setIsLoading] = useState(true);
     const [question, setQuestion] = useState({});
-    const [value, setValue] = useState(0);
-
-    const handleChange = ({ target }) => {
-        const { name, value } = target;
-        setValue(value);
-        onAnswer({ id: question.id, name, value });
-    }
 
     useEffect(() => {
         setQuestion(questionItem);
-        setValue(questionItem.value);
     }, [questionItem])
 
     useEffect(() => {
@@ -39,14 +32,23 @@ function Question({ questionItem, onAnswer, control }) {
                 </Box>
                 ) :
                 (<>
-                    <FormControl sx={{ width: '100%' }}>
-                        <FormLabel>{question?.description}</FormLabel>
-                        <RadioGroup row name={question?.name} value={value} onChange={handleChange}>
-                            {question?.options?.map(option => (
-                                <FormControlLabel key={option?.id} value={option?.value} control={<Radio />} label={option?.text} />
-                            ))}
-                        </RadioGroup>
-                    </FormControl>
+
+                    <Controller
+                        name={question?.name}
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                            <FormControl sx={{ width: '100%' }}>
+                                <FormLabel>{question?.description}</FormLabel>
+                                <RadioGroup row value={value} onChange={onChange}>
+                                    {question?.options?.map(option => (
+                                        <FormControlLabel key={option?.id} value={option?.value} control={<Radio />} label={option?.text} />
+                                    ))}
+                                </RadioGroup>
+                            </FormControl>
+                        )}
+                        rules={{ required: true }}
+                        defaultValue={question?.value}
+                    />
                 </>)
             }
         </Card>

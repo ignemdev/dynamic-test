@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useForm } from "react-hook-form";
+
 import { Box, Paper, Button, CircularProgress } from '@mui/material'
+
 import { spacing, border, palette } from '../helpers/theme';
 import Header from './Header'
 import Question from './Question';
@@ -8,42 +11,29 @@ import questionsJson from '../db/questions'
 export default function Test() {
 
     const [isLoading, setIsLoading] = useState(true);
-    const [isFromValid, setIsFromValid] = useState(false);
 
     const [score, setScore] = useState(0);
     const [questions, setQuestions] = useState([]);
-    const [answers, setAnswers] = useState([]);
 
-    const handleAnswer = answer => {
-        const { id } = answer;
-        var notRepeatedAnswers = answers.filter(e => e.id !== id);
-        setAnswers([...notRepeatedAnswers, answer])
-    }
+    const methods = useForm({ mode: "onChange" });
+    const { handleSubmit, reset, control, formState } = methods;
 
-    const handleResultsButton = () => {
-        const testScore = getTestScore(answers);
+    const onSubmit = (data) => {
+        const testScore = getTestScore(data);
         setScore(testScore);
-        setQuestions([]);
-        setAnswers([]);
-    }
+        reset();
+    };
 
     const getTestScore = (answers) => {
-        const values = answers.map(answer => Number(answer.value));
+        const values = Object.values(answers).map(value => Number(value));
         const accumulatedScore = values.reduce((acc, value) => acc + value);
         return accumulatedScore;
     }
 
     // request questions
     useEffect(() => {
-        console.log('first')
         setQuestions(questionsJson);
     }, []);
-
-    //limpiar form
-    useEffect(() => {
-        console.log(score);
-        setQuestions(questionsJson);
-    }, [score]);
 
     //loading handling
     useEffect(() => {
@@ -52,10 +42,10 @@ export default function Test() {
         }
     }, [questions])
 
-    //testear
+    //test score
     useEffect(() => {
-        setIsFromValid(questions.length === answers.length);
-    }, [answers])
+        console.log(score);
+    }, [score]);
 
     return (
         <Box sx={{ minWidth: '45%', marginY: 3 }}>
@@ -65,12 +55,16 @@ export default function Test() {
                     (<Box sx={{ ...spacing, display: 'flex', justifyContent: 'center', backgroundColor: palette.secondary.main }}>
                         <CircularProgress />
                     </Box>) :
-                    (<>{questions?.map(question => (
-                        <Question key={question.id} questionItem={question} onAnswer={handleAnswer} />
-                    ))}</>)
+                    (<>
+                        <form>
+                            {questions?.map(question => (
+                                <Question key={question.id} questionItem={question} control={control} />
+                            ))}
+                        </form>
+                    </>)
                 }
                 <Box sx={{ ...spacing, backgroundColor: palette.secondary.main }}>
-                    <Button disabled={!isFromValid} color='info' variant='contained' sx={{ ...border }} onClick={handleResultsButton}>Hola</Button>
+                    <Button disabled={!formState.isValid} onClick={handleSubmit(onSubmit)} color='info' variant='contained' sx={{ ...border }}>Resultados</Button>
                 </Box>
             </Paper>
         </Box>

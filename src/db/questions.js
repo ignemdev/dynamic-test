@@ -2,7 +2,7 @@ const questionsJson = [
     {
         "id": 1,
         "name": "question1",
-        "value": 0,
+        "value": "",
         "description": "Como estas?",
         "options": [
             {
@@ -20,7 +20,7 @@ const questionsJson = [
     {
         "id": 2,
         "name": "question2",
-        "value": 0,
+        "value": "",
         "description": "Como comes?",
         "options": [
             {
@@ -38,7 +38,7 @@ const questionsJson = [
     {
         "id": 3,
         "name": "question3",
-        "value": 0,
+        "value": "",
         "description": "Como comes?",
         "options": [
             {
