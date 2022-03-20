@@ -6,7 +6,7 @@ import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mu
 
 import { spacing, border, palette } from '../helpers/theme';
 
-function Question({ questionItem, control }) {
+const Question = ({ questionItem, control }) => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [question, setQuestion] = useState({});

@@ -8,7 +8,7 @@ import Header from './Header'
 import Question from './Question';
 import questionsJson from '../db/questions'
 
-export default function Test() {
+const Test = () => {
 
     const [isLoading, setIsLoading] = useState(true);
 
@@ -70,3 +70,6 @@ export default function Test() {
         </Box>
     );
 }
+
+
+export default Test;

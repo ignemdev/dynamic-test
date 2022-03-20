@@ -1,7 +1,7 @@
 import { spacing, border } from '../helpers/theme';
 import { Card, CardContent, Typography } from '@mui/material/';
 
-export default function Header() {
+const Header = () => {
     return (
         <Card variant="primary" sx={{ ...spacing, ...border }}>
             <CardContent sx={{ padding: 0 }}>
@@ -15,3 +15,5 @@ export default function Header() {
         </Card>
     );
 }
+
+export default Header;
