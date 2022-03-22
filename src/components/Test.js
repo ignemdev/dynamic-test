@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 
-import { Box, Paper, Button, CircularProgress } from '@mui/material'
+import { Box, Paper, Button, CircularProgress, Typography } from '@mui/material'
 import ContentPasteGoIcon from '@mui/icons-material/ContentPasteGo';
 
 import { spacing, border, palette } from '../helpers/theme';
@@ -78,6 +78,11 @@ const Test = () => {
                         sx={{ ...border }}>
                         Resultados <ContentPasteGoIcon sx={{ marginLeft: 1 }} />
                     </Button>
+                </Box>
+                <Box sx={{ ...spacing, paddingTop: 0, backgroundColor: palette.secondary.main }}>
+                    <Typography variant="body2">
+                        Este test está intencionado para uso informativo y de entretenimiento solamente. No es un sustituto de un diagnóstico profesional o tratamiento para alguna condición física. Si quiere obtener un diagnóstico favor visitar a un profesional en el área.
+                    </Typography>
                 </Box>
             </Paper>
             <Result

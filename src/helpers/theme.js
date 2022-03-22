@@ -34,7 +34,7 @@ export const theme = createTheme({
                     props: { variant: 'primary' },
                     style: {
                         border: 0,
-                        backgroundColor: palette.primary.main,
+                        backgroundColor: palette.info.main,
                         color: palette.primary.contrastText,
                     },
                 },
