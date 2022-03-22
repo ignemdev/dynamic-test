@@ -54,7 +54,7 @@ const Test = () => {
     }, [questions])
 
     return (
-        <Box sx={{ width: '100%', maxWidth: '700px', marginY: 3 }}>
+        <Box sx={{ width: '100%', maxWidth: '600px', marginY: 3 }}>
             <Header />
             <Paper elevation={2}>
                 {isLoading ?
@@ -80,7 +80,7 @@ const Test = () => {
                     </Button>
                 </Box>
                 <Box sx={{ ...spacing, paddingTop: 0, backgroundColor: palette.secondary.main }}>
-                    <Typography variant="body2">
+                    <Typography variant="body2" sx={{ textAlign: 'justify' }}>
                         Este test está intencionado para uso informativo y de entretenimiento solamente. No es un sustituto de un diagnóstico profesional o tratamiento para alguna condición física. Si quiere obtener un diagnóstico favor visitar a un profesional en el área.
                     </Typography>
                 </Box>
