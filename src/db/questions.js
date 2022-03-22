@@ -25,62 +25,62 @@ const questionsJson = [
     {
         "id": 1,
         "value": "",
-        "description": "¿Evita el exceso de azucar?",
+        "description": "¿Evita el exceso de azúcar?",
         "options": [...options]
     },
     {
         "id": 2,
         "value": "",
-        "description": "¿Le gusta aprender cosas nuevas?",
+        "description": "¿Posee una dieta balanceada según los estándares nutricionales?",
         "options": [...options]
     },
     {
         "id": 3,
         "value": "",
-        "description": "¿Poseo la motivacion necesario para realizar mis planes?",
+        "description": "¿Evita el exceso de grasas saturadas?",
         "options": [...options]
     },
     {
         "id": 4,
         "value": "",
-        "description": "Poseo una dieta balanceada segun los estandares nutricionales",
+        "description": "¿Bebe menos de 3 copas/ vasos de alcohol por semana?",
         "options": [...options]
     },
     {
         "id": 5,
         "value": "",
-        "description": "Evito el exceso de grasas saturadas",
+        "description": "¿Se asegura de obtener las cantidades de fibra y vitaminas necesarias?",
         "options": [...options]
     },
     {
         "id": 6,
         "value": "",
-        "description": "Me aseguro de obtener las cantidades de fibra y vitaminas necesarias",
+        "description": "¿Bebe mas de 8 vasos de agua al día?",
         "options": [...options]
     },
     {
         "id": 7,
         "value": "",
-        "description": "Me aseguro de obtener las cantidades de fibra y vitaminas necesarias",
+        "description": "¿Bebe menos de tres copas de café al día?",
         "options": [...options]
     },
     {
         "id": 8,
         "value": "",
-        "description": "Bebo MENOS de tres copas de cafe o te al dia",
+        "description": "¿Evita el exceso de sal?",
         "options": [...options]
     },
     {
         "id": 9,
         "value": "",
-        "description": "Evito el exceso de sal",
+        "description": "¿Realiza alguna actividad física diariamente?",
         "options": [...options]
     }
     ,
     {
         "id": 10,
         "value": "",
-        "description": "Me siento bien con mis actividades diarias y mi rutina",
+        "description": "¿Mantiene un nivel de grasa corporal controlado?",
         "options": [...options]
     }
 ]
