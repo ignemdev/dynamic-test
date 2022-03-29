@@ -9,7 +9,7 @@ const Header = () => {
                     Estilo de vida saludable
                 </Typography>
                 <Typography variant="body2">
-                    Grupo #
+                    Redefine With DBL
                 </Typography>
             </CardContent>
         </Card>
