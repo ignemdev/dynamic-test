@@ -9,7 +9,7 @@ const Header = () => {
                     ¿Qué tan saludable te sientes?
                 </Typography>
                 <Typography variant="body2">
-                    ¡Descubre que tan saludable es tu estilo de vida! Simplemente responde las siguientes preguntas con honestidad. Siguenos en nuestras redes sociales para que conozcas más sobre nuestra campaña Better for you. ¡No olvides compartirnos tus resultados @dblmarket!
+                    ¡Descubre que tan saludable es tu estilo de vida! Simplemente responde las siguientes preguntas con honestidad. Síguenos en nuestras redes sociales para que conozcas más sobre nuestra campaña Better for you. ¡No olvides compartirnos tus resultados @dblmarket!
                 </Typography>
             </CardContent>
         </Card>

@@ -61,7 +61,7 @@ const questionsJson = [
     {
         "id": 7,
         "value": "",
-        "description": "¿Bebe menos de tres copas de café al día?",
+        "description": "¿Bebe menos de tres tazas de café al día?",
         "options": [...options]
     },
     {
