@@ -1,11 +1,10 @@
 import { useState } from 'react';
 
-import { Box, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, Alert, Typography } from '@mui/material';
+import { Box, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, Alert } from '@mui/material';
 
 import { palette } from '../helpers/theme';
 
 import SendIcon from '@mui/icons-material/Send';
-import { display } from '@mui/system';
 
 const EmailInput = ({ EmailSended, OnEmailSend }) => {
 
