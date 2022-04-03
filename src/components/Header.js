@@ -5,11 +5,11 @@ const Header = () => {
     return (
         <Card variant="primary" sx={{ ...spacing, ...border }}>
             <CardContent sx={{ padding: 0 }}>
-                <Typography variant="h4" component="div" sx={{ marginBottom: 3, width: '100%', fontWeight: 'light' }} >
-                    Estilo de vida saludable
+                <Typography variant="h4" component="div" sx={{ marginBottom: 3, width: '100%', fontWeight: 'bold', textTransform: 'uppercase' }} >
+                    ¿Qué tan saludable eres?
                 </Typography>
                 <Typography variant="body2">
-                    Redefine With DBL
+                    Health Test With DBL
                 </Typography>
             </CardContent>
         </Card>

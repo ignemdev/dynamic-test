@@ -18,9 +18,9 @@ const Test = () => {
     const { handleSubmit, reset, control, formState } = methods;
 
     const [isLoading, setIsLoading] = useState(true);
-    const [isResultModalOpen, setIsResultModalOpen] = useState(false);
+    const [isResultModalOpen, setIsResultModalOpen] = useState(true); //false
 
-    const [score, setScore] = useState(0);
+    const [score, setScore] = useState(0); // 0
     const [questions, setQuestions] = useState([]);
 
     const onSubmit = (data) => {
@@ -54,7 +54,7 @@ const Test = () => {
     }, [questions])
 
     return (
-        <Box sx={{ width: '100%', maxWidth: '600px', marginY: 3 }}>
+        <Box sx={{ width: '100%', maxWidth: '650px', marginY: 3 }}>
             <Header />
             <Paper elevation={2}>
                 {isLoading ?

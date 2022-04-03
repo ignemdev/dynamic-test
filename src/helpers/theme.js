@@ -26,6 +26,13 @@ export const border = {
 }
 
 export const theme = createTheme({
+    typography: {
+        fontFamily: [
+            'Poppins', //Montserrat, Poppins, Barlow Semi Condensed
+            'sans-serif',
+        ].join(','),
+    },
+
     palette: { ...palette },
     components: {
         MuiCard: {

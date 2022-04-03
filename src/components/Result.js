@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { Box, Typography, Modal } from '@mui/material'
+import { Box, Typography, Modal, Button } from '@mui/material'
 
 import {
     List,
@@ -8,7 +8,7 @@ import {
     Divider
 } from '@mui/material';
 
-import { palette } from '../helpers/theme';
+import { palette, border } from '../helpers/theme';
 
 import rangesJson from '../db/ranges'
 
@@ -19,11 +19,6 @@ const style = {
     transform: 'translate(-50%, -50%)',
     bgcolor: palette.secondary.main,
 };
-
-const listItemStyles = {
-    display: 'flex',
-    justifyContent: 'center'
-}
 
 const Result = ({ open, handleCloseResult, testScore }) => {
 
@@ -58,22 +53,36 @@ const Result = ({ open, handleCloseResult, testScore }) => {
                         color: palette.secondary.contrastText
                     }}
                 >
-                    <ListItem sx={{ padding: 2, flexDirection: 'column', ...listItemStyles }}>
-                        <Typography variant='h5' sx={{ color: range?.color }}>{range?.result}</Typography>
+                    <ListItem sx={{ padding: 2, flexDirection: 'column' }}>
+                        <Typography variant='h5' sx={{ color: range?.color, marginY: 1 }}>{range?.result}</Typography>
+                        <Typography variant='subtitle1' sx={{ textAlign: 'center' }} >{range?.message}</Typography>
+                        <Button
+                            color='info'
+                            variant='contained'
+                            href={range?.link}
+                            sx={{ ...border, marginY: 1 }}>
+                            DBL Blog
+                        </Button>
                     </ListItem>
                     <Divider />
-                    <ListItem sx={{ padding: 2, ...listItemStyles }}>
-                        <Typography variant='h6'>Rango:</Typography>
-                        <Typography variant='h6' sx={{ margin: 2, color: range?.color }}>{range?.min} - {range?.max}</Typography>
+                    <ListItem sx={{ padding: 2, flexDirection: 'column' }}>
+
                     </ListItem>
                     <Divider />
-                    <ListItem sx={{ padding: 2, flexDirection: 'column', ...listItemStyles }}>
-                        <Typography variant='h6'>Score:</Typography>
-                        <Typography variant='h1' sx={{ color: range?.color }}>{score}</Typography>
+                    <ListItem sx={{ padding: 0, justifyContent: 'space-evenly' }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 2 }}>
+                            <Typography variant='h6'>Score:</Typography>
+                            <Typography variant='h1' sx={{ color: range?.color }}>{score}</Typography>
+                        </Box>
+                        <Divider orientation="vertical" flexItem></Divider>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 2 }}>
+                            <Typography variant='h6'>Rango:</Typography>
+                            <Typography variant='h6' sx={{ color: range?.color }}>{range?.min} - {range?.max}</Typography>
+                        </Box>
                     </ListItem>
                 </List>
             </Box>
-        </Modal>
+        </Modal >
     )
 }
 
