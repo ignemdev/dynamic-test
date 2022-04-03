@@ -18,9 +18,9 @@ const Test = () => {
     const { handleSubmit, reset, control, formState } = methods;
 
     const [isLoading, setIsLoading] = useState(true);
-    const [isResultModalOpen, setIsResultModalOpen] = useState(true); //false
+    const [isResultModalOpen, setIsResultModalOpen] = useState(false);
 
-    const [score, setScore] = useState(0); // 0
+    const [score, setScore] = useState(0);
     const [questions, setQuestions] = useState([]);
 
     const onSubmit = (data) => {
