@@ -54,7 +54,7 @@ const Test = () => {
     }, [questions])
 
     return (
-        <Box sx={{ width: '100%', maxWidth: '650px', marginY: 3 }}>
+        <Box sx={{ width: '100%', maxWidth: '700px', marginY: 3 }}>
             <Header />
             <Paper elevation={2}>
                 {isLoading ?
