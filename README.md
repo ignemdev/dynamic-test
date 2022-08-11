@@ -1,2 +1,2 @@
 # dynamic-test
-Test dinámico hecho con React y MaterialUI.
+Dynamic test for a mock company called DBL. Made using React and MaterialUI.
